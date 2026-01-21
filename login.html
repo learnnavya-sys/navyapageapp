@@ -1,2 +1,24 @@
-git
-added one more line
+#!/bin/bash
+
+# Source folder to backup
+SOURCE_DIR="$HOME/Documents"
+
+# Backup destination
+BACKUP_DIR="$HOME/Backups"
+
+# Create backup directory if it doesn't exist
+mkdir -p "$BACKUP_DIR"
+
+# Get current date & time
+TIMESTAMP=$(date +"%Y-%m-%d_%H-%M-%S")
+
+# Backup file name
+BACKUP_FILE="backup_$TIMESTAMP.tar.gz"
+
+# Create backup
+tar -czf "$BACKUP_DIR/$BACKUP_FILE" "$SOURCE_DIR"
+
+# Success message
+echo "✅ Backup completed successfully!"
+echo "📁 Backup saved at: $BACKUP_DIR/$BACKUP_FILE"
+z
